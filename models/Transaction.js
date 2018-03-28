@@ -1,14 +1,15 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const Book = require('../models/Book');
 
-var transactionSchema = Schema({
+const transactionSchema = Schema({
   memberid: String,
   days: String,
   date: { type: Date, default: Date.now() },
   price: Number,
-  booklist: [{ type: Schema.Types.ObjectId, ref: 'book' }]
+  booklist: [{ type: Schema.Types.ObjectId, ref: 'Book' }]
 });
 
-var Transaction = mongoose.model('Transaction', transactionSchema);
+const Transaction = mongoose.model('Transaction', transactionSchema);
 
 module.exports = Transaction
